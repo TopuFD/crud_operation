@@ -30,11 +30,9 @@ class _pageState extends State<page> {
             TextFormField(
               controller: _controller,
               decoration: InputDecoration(
-                labelText: "this is topu",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(15)
-                )
-              ),
+                  labelText: "this is topu",
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15))),
             ),
             SizedBox(
                 width: 400,
@@ -63,92 +61,104 @@ class _pageState extends State<page> {
                         child: ListTile(
                           title: Text(contactBox!.getAt(index).toString()),
                           trailing: SizedBox(
-                              width: MediaQuery.of(context).size.width / 4.5,
-                              child: Row(
-                                children: [
-                                  Expanded(
-                                    flex: 1,
-                                    child: IconButton(
-                                        onPressed: () {
-                                          showDialog(
-                                              context: context,
-                                              builder: (_) {
-                                                return Dialog(
-                                                  backgroundColor: Colors.white,
-                                                  child: Padding(
-                                                    padding: const EdgeInsets.only(top: 5,left: 10,right: 10),
-                                                    child: Container(
-                                                      height: 250,
-                                                      child: Column(
-                                                        children: [
-                                                          TextFormField(
-                                                            controller:
-                                                                _updateData,
-                                                            style: TextStyle(
-                                                                color:
-                                                                    Colors.black),
-                                                          ),
-                                                          SizedBox(
-                                                            height: 50,
-                                                          ),
-                                                          ElevatedButton(
-                                                              onPressed:
-                                                                  () async {
-                                                                try {
-                                                                  final updateData =
-                                                                      _updateData
-                                                                          .text;
-                                                                  if (updateData
-                                                                      .isNotEmpty) {
-                                                                    contactBox!.putAt(
-                                                                        index,
-                                                                        updateData);
+                            width: MediaQuery.of(context).size.width / 4.5,
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  flex: 1,
+                                  child: IconButton(
+                                      onPressed: () {
+                                        showDialog(
+                                            context: context,
+                                            builder: (_) {
+                                              return Dialog(
+                                                backgroundColor: Colors.white,
+                                                child: Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          top: 5,
+                                                          left: 10,
+                                                          right: 10),
+                                                  child: Container(
+                                                    height: 250,
+                                                    child: Column(
+                                                      children: [
+                                                        TextFormField(
+                                                          controller:
+                                                              _updateData,
+                                                          decoration: InputDecoration(
+                                                              labelText:
+                                                                  "this is topu",
+                                                              border: OutlineInputBorder(
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              15))),
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.black),
+                                                        ),
+                                                        SizedBox(
+                                                          height: 50,
+                                                        ),
+                                                        ElevatedButton(
+                                                            onPressed:
+                                                                () async {
+                                                              try {
+                                                                final updateData =
                                                                     _updateData
-                                                                        .clear();
-                                                                    Fluttertoast
-                                                                        .showToast(
-                                                                            msg:
-                                                                                "update added");
-                                                                    Navigator.pop(
-                                                                        context);
-                                                                  } else {
-                                                                    Fluttertoast
-                                                                        .showToast(
-                                                                            msg:
-                                                                                "write something");
-                                                                  }
-                                                                } catch (e) {
+                                                                        .text;
+                                                                if (updateData
+                                                                    .isNotEmpty) {
+                                                                  contactBox!.putAt(
+                                                                      index,
+                                                                      updateData);
+                                                                  _updateData
+                                                                      .clear();
                                                                   Fluttertoast
                                                                       .showToast(
                                                                           msg:
-                                                                              e.toString());
+                                                                              "update added");
+                                                                  Navigator.pop(
+                                                                      context);
+                                                                } else {
+                                                                  Fluttertoast
+                                                                      .showToast(
+                                                                          msg:
+                                                                              "write something");
                                                                 }
-                                                              },
-                                                              child: Text(
-                                                                  "Edit to card"))
-                                                        ],
-                                                      ),
+                                                              } catch (e) {
+                                                                Fluttertoast
+                                                                    .showToast(
+                                                                        msg: e
+                                                                            .toString());
+                                                              }
+                                                            },
+                                                            child: Text(
+                                                                "Edit to card"))
+                                                      ],
                                                     ),
                                                   ),
-                                                );
-                                              });
-                                        },
-                                        icon: Icon(Icons.edit)),
-                                  ),
-                                  Expanded(
-                                    flex: 1,
-                                    child: IconButton(
-                                        onPressed: () {
-                                          contactBox!.deleteAt(index);
-                                        },
-                                        icon: Icon(
-                                          Icons.delete,
-                                          color: Colors.red,
-                                        )),
-                                  )
-                                ],
-                              ),
+                                                ),
+                                              );
+                                            });
+                                      },
+                                      icon: Icon(Icons.edit)),
+                                ),
+                                Expanded(
+                                  flex: 1,
+                                  child: IconButton(
+                                      onPressed: () {
+                                        contactBox!.deleteAt(index);
+                                      },
+                                      icon: Icon(
+                                        Icons.delete,
+                                        color: Colors.red,
+                                      )),
+                                )
+                              ],
                             ),
+                          ),
                         ),
                       );
                     });
