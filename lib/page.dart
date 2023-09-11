@@ -29,6 +29,12 @@ class _pageState extends State<page> {
           children: [
             TextFormField(
               controller: _controller,
+              decoration: InputDecoration(
+                labelText: "this is topu",
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15)
+                )
+              ),
             ),
             SizedBox(
                 width: 400,
